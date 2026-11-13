@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="$(find ur_moveit_config)/srdf/ur_macro.srdf.xacro"/>
+  <xacro:include filename="$(find ur_robotiq_description)/srdf/robotiq_2f_85.xacro"/>
+
+  <xacro:ur_srdf/>
+  <xacro:robotiq_2f_85/>
+
+  <group_state name="ready" group="ur_manipulator">
+    <joint name="shoulder_pan_joint" value="${pi/2}" />
+    <joint name="shoulder_lift_joint" value="-${5/8*pi}" />
+    <joint name="elbow_joint" value="${5/8*pi}" />
+    <joint name="wrist_1_joint" value="-${pi/2}" />
+    <joint name="wrist_2_joint" value="-${pi/2}" />
+    <joint name="wrist_3_joint" value="0" />
+  </group_state>
+
+</robot>
