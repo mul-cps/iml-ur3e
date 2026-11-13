@@ -7,6 +7,7 @@
     <arg name="ur_type" value="$(var ur_type)" />
     <arg name="robot_ip" value="$(var robot_ip)" />
     <arg name="use_mock_hardware" value="$(var use_mock_hardware)" />
+    <arg name="description_file" value="$(find-pkg-share ur3e_robotiq_description)/urdf/ur_robotiq.urdf.xacro" />
     <arg name="headless_mode" value="true" />
     <arg name="launch_dashboard_client" value="true" />
     <arg name="launch_rviz" value="false" />
