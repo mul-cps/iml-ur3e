@@ -1,0 +1,25 @@
+<launch>
+  <arg name="ur_type" default="ur3e" />
+  <arg name="robot_ip" default="192.168.56.101" />
+  <arg name="use_mock_hardware" default="false" />
+
+  <include file="$(find-pkg-share ur_robot_driver)/launch/ur_control.launch.py">
+    <arg name="ur_type" value="$(var ur_type)" />
+    <arg name="robot_ip" value="$(var robot_ip)" />
+    <arg name="use_mock_hardware" value="$(var use_mock_hardware)" />
+    <arg name="headless_mode" value="true" />
+    <arg name="launch_dashboard_client" value="true" />
+    <arg name="launch_rviz" value="false" />
+  </include>
+
+  <include file="$(find-pkg-share ur_moveit_config)/launch/ur_moveit.launch.py">
+    <arg name="ur_type" value="$(var ur_type)" />
+    <arg name="launch_rviz" value="true" />
+  </include>
+
+  <include
+    file="$(find-pkg-share robotiq_2f_urcap_adapter)/launch/robotiq_2f140_urcap_adapter_launch.py"
+    unless="$(var use_mock_hardware)">
+    <arg name="robot_ip" value="$(var robot_ip)" />
+  </include>
+</launch>

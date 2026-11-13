@@ -7,11 +7,11 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(launch_ros REQUIRED)
-find_package(ur3e_robotiq_description REQUIRED)
-find_package(ur_robot_driver REQUIRED)
-find_package(ur_moveit_config REQUIRED)
-find_package(robotiq_2f_urcap_adapter REQUIRED)
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
