@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur_robotiq">
+
+  <!-- parameters -->
+  <xacro:arg name="name" default="ur" />
+  <xacro:arg name="ur_type" default="ur3e" />
+  <xacro:arg name="gripper_type" default="robotiq_2f_85" /> <!-- robotiq_2f_85 or robotiq_2f_140 -->
+  <xacro:arg name="tf_prefix" default="" />
+  <xacro:arg name="joint_limits_parameters_file"
+    default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml" />
+  <xacro:arg name="kinematics_parameters_file"
+    default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml" />
+  <xacro:arg name="physical_parameters_file"
+    default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml" />
+  <xacro:arg name="visual_parameters_file"
+    default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml" />
+  <xacro:arg name="use_fake_hardware" default="false" />
+
+  <xacro:arg name="robot_ip" default="0.0.0.0" />
+  <xacro:arg name="script_filename" default=""/>
+  <xacro:arg name="output_recipe_filename" default=""/>
+  <xacro:arg name="input_recipe_filename" default=""/>
+
+  <link name="world" />
+
+  <!-- robot -->
+  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro" />
+  <xacro:include filename="$(find ur_robot_driver)/urdf/ur.ros2_control.xacro" />
+
+  <xacro:ur_robot
+    name="$(arg name)"
+    tf_prefix="$(arg tf_prefix)"
+    parent="world"
+    joint_limits_parameters_file="$(arg joint_limits_parameters_file)"
+    kinematics_parameters_file="$(arg kinematics_parameters_file)"
+    physical_parameters_file="$(arg physical_parameters_file)"
+    visual_parameters_file="$(arg visual_parameters_file)"
+  >
+    <origin />
+  </xacro:ur_robot>
+
+  <xacro:ur_ros2_control
+    name="$(arg name)"
+    tf_prefix="$(arg tf_prefix)"
+    kinematics_parameters_file="$(arg kinematics_params)"
+    use_mock_hardware="$(arg use_mock_hardware)"
+    mock_sensor_commands="$(arg mock_sensor_commands)"
+    headless_mode="$(arg headless_mode)"
+    robot_ip="$(arg robot_ip)"
+    script_filename="$(arg script_filename)"
+    output_recipe_filename="$(arg output_recipe_filename)"
+    input_recipe_filename="$(arg input_recipe_filename)"
+    ur_type="$(arg ur_type)"
+  />
+
+  <!-- gripper -->
+  <xacro:property name="gripper_type" value="$(arg gripper_type)" />
+  <xacro:if value="${gripper_type == 'robotiq_2f_85'}">
+    <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro" />
+  </xacro:if>
+  <xacro:if value="${gripper_type == 'robotiq_2f_140'}">
+    <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_140_macro.urdf.xacro" />
+  </xacro:if>
+
+  <xacro:robotiq_gripper
+    name="RobotiqGripperHardwareInterface"
+    prefix="$(arg tf_prefix)"
+    parent="$(arg tf_prefix)tool0"
+    include_ros2_control="false"
+    use_fake_hardware="$(arg use_fake_hardware)"
+  >
+    <origin />
+  </xacro:robotiq_gripper>
+
+</robot>
