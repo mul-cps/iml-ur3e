@@ -7,14 +7,15 @@
     <arg name="ur_type" value="$(var ur_type)" />
     <arg name="robot_ip" value="$(var robot_ip)" />
     <arg name="use_mock_hardware" value="$(var use_mock_hardware)" />
+    <arg name="description_file" value="$(find-pkg-share ur_robotiq_description)/urdf/ur_robotiq.urdf.xacro" />
     <arg name="headless_mode" value="true" />
     <arg name="launch_dashboard_client" value="true" />
     <arg name="launch_rviz" value="false" />
   </include>
 
-  <include file="$(find-pkg-share ur_moveit_config)/launch/ur_moveit.launch.py">
-    <arg name="ur_type" value="$(var ur_type)" />
+  <include file="$(find-pkg-share ur_robotiq_bringup)/launch/ur_moveit.launch.py">
     <arg name="launch_rviz" value="true" />
+    <arg name="srdf_file" value="$(find-pkg-share ur_robotiq_description)/srdf/ur_robotiq.srdf.xacro" />
   </include>
 
   <include
