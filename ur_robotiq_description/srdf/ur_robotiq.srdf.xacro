@@ -2,10 +2,10 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
   <xacro:include filename="$(find ur_moveit_config)/srdf/ur_macro.srdf.xacro"/>
-  <xacro:include filename="$(find ur_robotiq_description)/srdf/robotiq_2f_85.xacro"/>
+  <xacro:include filename="$(find ur_robotiq_description)/srdf/robotiq_2f.xacro"/>
 
   <xacro:ur_srdf/>
-  <xacro:robotiq_2f_85/>
+  <xacro:robotiq_2f_140/>
 
   <group_state name="ready" group="ur_manipulator">
     <joint name="shoulder_pan_joint" value="${pi/2}" />

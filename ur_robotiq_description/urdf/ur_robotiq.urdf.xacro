@@ -4,7 +4,7 @@
   <!-- parameters -->
   <xacro:arg name="name" default="ur" />
   <xacro:arg name="ur_type" default="ur3e" />
-  <xacro:arg name="gripper_type" default="robotiq_2f_85" /> <!-- robotiq_2f_85 or robotiq_2f_140 -->
+  <xacro:arg name="gripper_type" default="robotiq_2f_140" /> <!-- robotiq_2f_85 or robotiq_2f_140 -->
   <xacro:arg name="tf_prefix" default="" />
   <xacro:arg name="joint_limits_parameters_file"
     default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml" />

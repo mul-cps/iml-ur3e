@@ -19,7 +19,7 @@
   </include>
 
   <include
-    file="$(find-pkg-share robotiq_2f_urcap_adapter)/launch/robotiq_2f85_urcap_adapter_launch.py"
+    file="$(find-pkg-share robotiq_2f_urcap_adapter)/launch/robotiq_2f140_urcap_adapter_launch.py"
     unless="$(var use_mock_hardware)">
     <arg name="robot_ip" value="$(var robot_ip)" />
   </include>
