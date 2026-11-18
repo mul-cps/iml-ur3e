@@ -149,6 +149,19 @@ The `control_msgs/action/GripperCommand` has two parameters:
 Those values must be in the valid range for the gripper, i.e. the Robotiq 2F-140 in this case.
 
 
+### 2.5 Launch Files
+
+This repo contains launch files for conveniently starting all nodes at once:
+```sh
+ros2 launch ur_robotiq_bringup ur_robotiq.launch.xml
+```
+
+This launch file can be used with `use_mock_hardware:=true` to launch a `mock_components/GenericSystem` without a real robot and test MoveIt:
+```sh
+ros2 launch ur_robotiq_bringup ur_robotiq.launch.xml use_mock_hardware:=true
+```
+
+
 ## 3. Calibration
 
 The robot is factory calibration but the ROS 2 node does not use this calibration by default. See https://docs.universal-robots.com/Universal_Robots_ROS2_Documentation/doc/ur_robot_driver/ur_calibration/doc/usage.html on how to extract and use this calibration.
