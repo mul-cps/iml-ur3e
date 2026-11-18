@@ -1,0 +1,15 @@
+repositories:
+  # Robotiq Gripper
+  src/robotiq-ros:
+    type: git
+    url: https://github.com/robotiq/robotiq-ros.git
+    version: main
+  src/robotiq_2f_urcap_adapter:
+    type: git
+    url: https://github.com/mul-cps/robotiq_2f_urcap_adapter.git
+    version: use_std_msg
+
+  src/ur_robotiq:
+    type: git
+    url: https://github.com/mul-cps/ur_robotiq.git
+    version: main
