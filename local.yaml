@@ -1,0 +1,42 @@
+robotiq_2f_urcap_adapter:
+  ubuntu:
+  - ros-lyrical-robotiq-2f-urcap-adapter
+robotiq_grippers_sdk_vendor:
+  ubuntu:
+  - ros-lyrical-robotiq-grippers-sdk-vendor
+robotiq_msgs:
+  ubuntu:
+  - ros-lyrical-robotiq-msgs
+robotiq_tactile_sdk_vendor:
+  ubuntu:
+  - ros-lyrical-robotiq-tactile-sdk-vendor
+robotiq_test_support:
+  ubuntu:
+  - ros-lyrical-robotiq-test-support
+robotiq_driver:
+  ubuntu:
+  - ros-lyrical-robotiq-driver
+robotiq_controllers:
+  ubuntu:
+  - ros-lyrical-robotiq-controllers
+robotiq_hardware_tests:
+  ubuntu:
+  - ros-lyrical-robotiq-hardware-tests
+robotiq_description:
+  ubuntu:
+  - ros-lyrical-robotiq-description
+robotiq_tsf:
+  ubuntu:
+  - ros-lyrical-robotiq-tsf
+ur_robotiq_description:
+  ubuntu:
+  - ros-lyrical-ur-robotiq-description
+ur_robotiq_description:
+  ubuntu:
+  - ros-lyrical-ur-robotiq-description
+ur_robotiq_bringup:
+  ubuntu:
+  - ros-lyrical-ur-robotiq-bringup
+ur_robotiq_bringup:
+  ubuntu:
+  - ros-lyrical-ur-robotiq-bringup
